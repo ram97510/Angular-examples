@@ -1,0 +1,49 @@
+<!-- <form class="container" [formGroup]="FormData" >
+    <div class="form-group">
+        <label for="fname">First Name</label>
+        <input type="text" class="form-control" >
+    </div>
+    <div class="form-group">
+        <label for="lname">Last Name</label>
+        <input type="text" class="form-control">
+        </div>
+    <div class="form-group">
+        <label for="mobilenum">Mobile Number</label>
+        <input type="number" class="form-control" maxlength="10">
+    </div>
+    <div class="form-group">
+        <label for="dob">Date of Birth</label>
+        <input type="date" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="pass">Password</label>
+        <input type="text" class="form-control" id="newPassword" formControlName="newPassword" #pw maxlength="20">
+
+        <div *ngIf="newPassword.invalid && (newPassword.dirty || newPassword.touched)"class="form-text text-danger">
+            <div *ngIf="newPassword.errors?.['pattern']">
+                Password must contain at least one number <br /> one uppercase and one
+                lowercase letter <br /> Minimum 8 characters
+              </div>
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <label for="confirmpass">Confirm Password</label>
+        <input type="text" class="form-control">
+    </div>
+    <div class="form-group mt-3">
+        <label for="img">Upload image</label><br>
+        <input type="file" (change)="onSelectFile($event)" multiple id="fileupload" formControlName="fileupload">
+        <button class="btn btn-outline-dark" (click)="remove()">remove</button><br>
+        <img *ngFor='let url of urls'  [src]="url" height="200" class="m-2"> <br/>
+
+
+    </div> <br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form> -->

@@ -1,0 +1,35 @@
+
+  #secrow{
+    padding-left: 160px;
+  }
+  #secrow button {
+    width: 150px;
+    margin: 10px;
+    height: 55px;
+  }
+  input{
+    height: 60px;
+  }
+  
+
+
+@media only screen and (max-width: 600px) {
+
+    .row button {
+      margin-bottom: 10px;
+    }
+  
+    #secrow button {
+      margin: 2px;
+      width: 70px;
+      height: 50px;
+    }
+    #secrow{
+        padding-left: 0;
+    }
+
+    form{
+      margin-top: 80px;
+    }
+  }
+

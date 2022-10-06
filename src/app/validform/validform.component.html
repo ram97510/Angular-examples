@@ -1,0 +1,123 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <div class="container pt-5 pb-5 bg-light" id="full">
+            <div class="col-md-6 offset-md-3">
+                <h2 class="text-primary text-center fw-bold">Sign Up</h2>
+                <hr class="mb-4">
+                <form [formGroup]="FormData" (ngSubmit)="onSubmit()" >
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" required />
+                        <div *ngIf="f.firstName.invalid && (submitted || f.firstName.dirty || f.firstName.touched)" class="form-text text-danger">
+                            <div *ngIf="f.firstName.errors?.required" >First Name is required</div>
+                            <div *ngIf="f.firstName.errors?.pattern">only characters is allowed</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group mt-3 mb-3">
+                        <label>Last Name</label>
+                        <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" required />
+                        <div *ngIf="f.lastName.invalid && (submitted || f.lastName.dirty || f.lastName.touched)" class="form-text text-danger">
+                            <div *ngIf="f.lastName.errors?.required" >Last Name is required</div>
+                            <div *ngIf="f.lastName.errors?.pattern">only characters is allowed</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-3 mb-3">
+                        <label>Email</label>
+                        <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" required />
+                        <div *ngIf="f.email.invalid && (submitted || f.email.dirty || f.email.touched)" class="form-text text-danger">
+                            <div *ngIf="f.email.errors?.required">Email is required</div>
+                            <div *ngIf="f.email.errors?.email">Email must be a valid email address</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mobile Number</label>
+                        <input type="text" formControlName="mobileNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.mobileNumber.errors }" required  maxlength="10" />
+                        <div *ngIf="f.mobileNumber.invalid && (submitted || f.mobileNumber.dirty || f.mobileNumber.touched)" class="form-text text-danger">
+                            <div *ngIf="f.mobileNumber.errors?.required" >Mobile Number is required</div>
+                            <div *ngIf="f.mobileNumber.errors?.minlength">Enter 10 digit Number</div>
+                            <div *ngIf="f.mobileNumber.errors?.pattern">only Number is allowed</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-3 mb-3">
+                        <label>Date of Birth</label>
+                        <input type="date" formControlName="dob" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" required />
+                        <div *ngIf="f.dob.invalid && (submitted || f.dob.dirty || f.dob.touched)" class="form-text text-danger">
+                            <div *ngIf="f.dob.errors?.required">Date of Birth is required</div>
+                            <!-- <div *ngIf="f.dob.errors?.['pattern']">please enter DD/MM/YYYY format</div> -->
+                        </div>
+                    </div>
+<!-- 
+                    <div class="form-group mt-3 mb-3 " >
+                        <label>Password</label>
+                        <div class="d-flex gap-3" >
+                        <input [type]="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" required maxlength="20"/>
+
+                        <p (click)="onClick()" id="eye">
+                            <i class="fa fa-eye" aria-hidden="true" *ngIf="!show"></i>
+                            <i class="fa fa-eye-slash" aria-hidden="true" *ngIf="show"></i>
+                        </p>
+                        </div>
+
+                        <div *ngIf="f.password.invalid && (submitted || f.password.dirty || f.password.touched)" class="form-text text-danger">
+                            <div *ngIf="f.password.errors?.required">Password is required</div>
+                            <div *ngIf="f.password.errors?.minlength">Password must be at least 6 characters</div>
+                            <div *ngIf="f.password.errors?.['pattern']">
+                                Password must contain at least one number <br /> one uppercase and one lowercase letter <br> at least one special character, e.g., ! @ # 
+                              </div>
+                        </div> 
+                    </div>-->
+<!---------------------------------------------------------------------------->
+                 <div class="form-group inner right">
+                    <label>Password</label>
+                     <div class="input-group col-6 mx-auto">
+                          <input formControlName="password" [type]="showPassword ? 'text' : 'password'"  class="form-control pwd-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" required maxlength="20">
+                        <div>
+                           <i alt="show" class="fa fa-eye eye-show" (click)="showPassword = !showPassword" [class.hide]="showPassword"></i> 
+                           <i alt="hide" class="fa fa-eye-slash eye-hide" (click)="showPassword = !showPassword" [class.hide]="!showPassword"></i>
+                        </div>
+                    </div>
+                    <div *ngIf="f.password.invalid && (submitted || f.password.dirty || f.password.touched)" class="form-text text-danger">
+                        <div *ngIf="f.password.errors?.required">Password is required</div>
+                        <div *ngIf="f.password.errors?.minlength">Password must be at least 6 characters</div>
+                        <div *ngIf="f.password.errors?.['pattern']">
+                            one uppercase and one lowercase letter <br> Password must contain at least one number <br> at least one special character e.g.,!@# 
+                        </div>
+                    </div>
+                    
+                </div>
+<!------------------------------------------------------------------------------------------------->
+                    <div class="form-group mt-3 mb-3">
+                        <label>Confirm Password</label>
+                        <input type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" required />
+                        <div *ngIf="f.confirmPassword.invalid && (submitted || f.confirmPassword.dirty || f.confirmPassword.touched)" class="form-text text-danger">
+                            <div *ngIf="f.confirmPassword.errors?.required">Confirm Password is required</div>
+                            <div *ngIf="f.confirmPassword.errors?.mustMatch">Passwords not match</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-3" >
+                        <label for="img">Upload image</label><br>
+                        <input type="file" multiple id="fileupload" (change)="onSelectFile($event)" formControlName="fileUpload" #fileInput id="file" [ngClass]="{ 'is-invalid': submitted && f.fileUpload.errors }" accept="image/png,image/jpg,image/jpeg"  style="display: none;"   >                
+                        
+                        <input type="button" (click)="fileInput.click()" value="Add" class="btn btn-success">&nbsp;
+                        <input type="button"(click)="remove()" value="remove" class="btn btn-danger"><br>
+                        
+                        <div *ngIf="f.fileUpload.invalid && (submitted || f.fileUpload.dirty || f.fileUpload.touched)" class="form-text text-danger">
+                            <div *ngIf="f.fileUpload.errors?.required">Image is is required</div>
+                        </div>
+                        <div  *ngFor='let url of urls let index = index'>
+                        <img  [src]="url" height="150px" width="150px" class="m-2">
+                        
+                        </div>
+                    </div>
+
+					<button class="btn btn-primary mt-4">Submit</button>
+
+                </form>
+            </div>
+    </div>
+

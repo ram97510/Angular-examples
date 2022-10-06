@@ -1,0 +1,48 @@
+#a{
+    margin-top: 60px;
+}
+
+.b{
+    padding: 10px;
+
+}
+
+#des{
+    padding: 15px;
+    
+}
+
+#full{
+    margin-bottom: 20px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .b {
+      flex-direction: column;
+    }
+  }
+  
+  @media only screen and (max-width: 700px) {
+    #full {
+      margin-bottom: 100px;
+    }
+  }
+
+
+
+
+  .but {
+    display: block;
+    position: absolute;
+    width: 120px;
+    height: 80px;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+  }
+
+  
